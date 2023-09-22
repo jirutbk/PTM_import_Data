@@ -2,9 +2,9 @@
 import csv
 from PyPDF2 import PdfReader
 
-#fileName = input("ป้อนชื่อไฟล์หนังสือแจ้งเตือน (.pdf) : ")
-#reader = PdfReader(fileName)
-reader = PdfReader("sampleData.pdf")
+fileName = input("ป้อนชื่อไฟล์หนังสือแจ้งเตือน (.pdf) : ")
+reader = PdfReader(fileName)
+#reader = PdfReader("sampleData.pdf")
 
 pageNum = len(reader.pages)
 
@@ -50,8 +50,11 @@ for page in reader.pages:
 # print number of pages
 print("รวมหนังสือแจ้ง จำนวน : ", pageNum)
 
+fileName = input("\nตั้งชื่อไฟล์ข้อมูลที่จะบันทึก (.csv) : ")
 
-with open('Data.csv', 'w', newline='') as f:
+with open(fileName, 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(header)
     writer.writerows(data)
+
+input("\nบันทึกเรียบร้อย กดปุ่ม Enter เพื่อจบการทำงาน...")
