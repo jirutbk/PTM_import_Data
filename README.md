@@ -4,3 +4,6 @@ System requirment:
 - Python 3.11.5  
 - pip install PyPDF2  
 - Windows Terminal App from Microsoft Store  
+  
+compile:  
+   python -m compileall PTM_importData.py  
