@@ -1,4 +1,5 @@
-﻿import os, io, subprocess, csv
+﻿# Tanunnas BK ©2023
+import os, io, subprocess, csv
 from PyPDF2 import PdfReader
 
 if input("ต้องการเปิดโฟลเดอร์ข้อมูลหรือไม่ (1:ใช่) : ") == "1":
@@ -25,29 +26,25 @@ print("\033[3;37;42m   Ref1           ชื่อ - สกุล               
 
 for page in reader.pages:    
     page_text = page.extract_text()    
-    ref1 = ""
-    name = ""
-    address = ""
-    province = ""
-    postcode = ""
+    ref1 = name = address = province = postcode = ""
     
     for line in io.StringIO(page_text):
-            if line.find("Ref1") != -1:            
+            if "Ref1" in line:            
                 ref1 = line.split(": ")
                 ref1 = ref1[1].strip()
                 print("{0:<15}".format(ref1), end="")
-            elif line.find("นามสกุล :") != -1:
+            elif "นามสกุล :" in line:
                 name = line.split(": ")
                 name = name[1].strip()
                 print("{0:<35}".format(name[0:33]), end="")
-            elif line.find("ที่อยู่ :") != -1:
+            elif "ที่อยู่ :" in line:
                 address = line.split(": ")
                 address = address[1].strip()
                 print("{0:<30}".format(address[0:28]), end="")
-            elif line.find("อ.") != -1 and line.find("อ.") < 3:  #พบในตำแหน่งต้นๆ ของบรรทัด          
+            elif "อ." in line and line.find("อ.") < 3:  #พบในตำแหน่งต้นๆ ของบรรทัด          
                 province = line.strip()
                 print("{0:<30}".format(province[0:28]), end="")
-            elif line.find("ไปรษณีย์ :") != -1:                
+            elif "ไปรษณีย์ :" in line:                
                 postcode = line.split(": ")
                 postcode = postcode[1].strip()
                 print("{0:<9}".format(postcode)) 
@@ -55,12 +52,15 @@ for page in reader.pages:
     row = [ref1, name, address, province, postcode]    
     data.append(row)          
 
-print("------------------------------------------------------------------------------------------------------------------------")
+print("-" * 120)
 print("รวมหนังสือแจ้ง จำนวน : ", pageNum)
-fileName = input("\nตั้งชื่อไฟล์ข้อมูลที่จะบันทึก (.csv) : ")
-
-if fileName.find(".") == -1:
-    fileName = fileName + ".csv"
+name = input("\nตั้งชื่อไฟล์ข้อมูลที่จะบันทึก (.csv) : ")
+if len(name)!= 0:       
+    if "." in name:        
+        fileName = name.split(".")[0] + ".csv"
+    else: fileName = name + ".csv"
+else:
+    fileName = fileName.split(".")[0] + ".csv"
 
 with open(fileName, 'w', newline='') as f:
     writer = csv.writer(f)
