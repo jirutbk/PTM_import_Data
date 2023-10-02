@@ -1,4 +1,8 @@
 @echo off
+FOR /f %%p in ('where pythonw') do SET PYTHONPATH=%%p
+ECHO %PYTHONPATH%
+pip install PyPDF2
+pip install openpyxl
 set TARGET='%CD%\PTM_importData_GUI.pyc'
 set SHORTCUT='%userprofile%\desktop\PTM_importData.lnk'
 set PWS=powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile
