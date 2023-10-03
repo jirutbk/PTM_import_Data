@@ -6,6 +6,7 @@ System requirment:
 pip install PyPDF2
 pip install openpyxl
 pip install pywin32
+pip install fpdf2
 ```
 - Windows Terminal App from Microsoft Store  
   
