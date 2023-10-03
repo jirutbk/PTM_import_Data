@@ -41,7 +41,7 @@ for page in reader.pages:
                 address = line.split(": ")
                 address = address[1].strip()
                 print("{0:<30}".format(address[0:28]), end="")
-            elif "อ." in line and line.find("อ.") < 3:  #พบในตำแหน่งต้นๆ ของบรรทัด          
+            elif "อ." in line and line.find("อ.") < 6:  #พบในตำแหน่งต้นๆ ของบรรทัด          
                 province = line.strip()
                 print("{0:<30}".format(province[0:28]), end="")
             elif "ไปรษณีย์ :" in line:                
