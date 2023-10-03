@@ -75,7 +75,7 @@ def saveToExcel():
         messagebox.showinfo("Error", "กรุณาเปิดไฟล์ Pdf เพื่อนำเข้าข้อมูลก่อน!")
         return
 
-    fileName = fileName.split(".")[0] + ".xlsx"
+    fileName = fileName[0:-4]+ ".xlsx"
 
     wb = openpyxl.Workbook()
     sheet = wb.worksheets[0]
