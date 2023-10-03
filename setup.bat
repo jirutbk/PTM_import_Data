@@ -1,6 +1,7 @@
 @echo off
 pip install PyPDF2
 pip install openpyxl
+pip install pywin32
 
 FOR /f %%p in ('where pythonw') do SET PYTHONPATH=%%p
 ECHO %PYTHONPATH%
