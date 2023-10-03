@@ -56,7 +56,7 @@ def openPDF():
                     elif "ที่อยู่ :" in line:
                         address = line.split(": ")
                         address = address[1].strip()                    
-                    elif "อ." in line and line.find("อ.") < 3:  #พบในตำแหน่งต้นๆ ของบรรทัด          
+                    elif "อ." in line and line.find("อ.") < 6:  #พบในตำแหน่งต้นๆ ของบรรทัด          
                         province = line.strip()                    
                     elif "ไปรษณีย์ :" in line:                
                         postcode = line.split(": ")
