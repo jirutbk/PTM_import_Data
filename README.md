@@ -5,6 +5,7 @@ System requirment:
 ```console   
 pip install PyPDF2
 pip install openpyxl
+pip install pywin32
 ```
 - Windows Terminal App from Microsoft Store  
   
