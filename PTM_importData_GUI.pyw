@@ -21,7 +21,7 @@ def resource_path(relative_path):
 
 #region FormInit
 mainfrm = Tk()
-mainfrm.geometry("315x350+50+150")
+mainfrm.geometry("345x350+350+150")
 mainfrm.resizable(width=False, height=False)
 mainfrm.title("PTM - Data import from Pdf 1.0")
 mainfrm.wm_iconbitmap(resource_path("ptm_icon.ico"))
@@ -120,7 +120,7 @@ mainfrm.config(menu=menubar)
 
 lblfrm = ttk.LabelFrame(mainfrm, text="รายการข้อมูล")
 lblfrm.grid(column=0, row=0, columnspan=2, padx=10, pady=5, sticky="w")
-listData = Listbox(lblfrm, name="listData", height=12, width=45)
+listData = Listbox(lblfrm, name="listData", height=12, width=50)
 listData.pack(side="left", fill="y", pady=2)
 
 scrollbar1 = Scrollbar(lblfrm, orient="vertical" )
